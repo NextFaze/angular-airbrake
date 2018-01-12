@@ -1,32 +1,32 @@
-# Angular (2+) Rollbar Integration
+# Angular (2+) Airbrake Integration
 
-[![Build Status](https://travis-ci.org/NextFaze/angular-rollbar.svg?branch=master)](https://travis-ci.org/NextFaze/angular-rollbar) [![Coverage Status](https://coveralls.io/repos/github/NextFaze/angular-rollbar/badge.svg?branch=master)](https://coveralls.io/github/NextFaze/angular-rollbar?branch=master)
+[![Build Status](https://travis-ci.org/NextFaze/angular-airbrake.svg?branch=master)](https://travis-ci.org/NextFaze/angular-airbrake) [![Coverage Status](https://coveralls.io/repos/github/NextFaze/angular-airbrake/badge.svg?branch=master)](https://coveralls.io/github/NextFaze/angular-airbrake?branch=master)
 
-This package provides an Angular 2+ service for logging to Rollbar.
+This package provides an Angular 2+ service for logging to Airbrake.
 
 ## Installation
 
-    npm install angular-rollbar
+    npm install angular-airbrake
 
 ### Dependencies
 
-This module relies on the official `rollbar-browser` npm package. In addition, it has Angular >= 2 as a peer dependency.
+This module relies on the official `airbrake-js` npm package. In addition, it has Angular >= 2 as a peer dependency.
 
 ## Usage
 
 ### Bootstrap the module
 
 ```ts
-import { RollbarModule, RollbarService } from 'angular-rollbar'
+import { AirbrakeModule, AirbrakeService } from 'angular-airbrake'
 
 NgModule({
     imports: [
-        RollbarModule.forRoot({
-            accessToken: 'YOUR ROLLBAR CLIENT TOKEN'
+        AirbrakeModule.forRoot({
+            // Your Airbrake options here, follow the Airbrake documentation
         })
     ],
     providers: [
-        { provide: ErrorHandler, useClass: RollbarService }
+        { provide: ErrorHandler, useClass: AirbrakeService }
     ]
 })
 export class MyAngularApp {}
@@ -44,8 +44,8 @@ import { RollbarService } from 'angular-rollbar';
 @Component(...)
 export class MyComponent {
 
-    constructor (rollbar: RollbarService) {
-        rollbar.info('Logging to Rollbar!');
+    constructor (airbrake: AirbrakeService) {
+        airbrake.error('Logging to Airbrake!');
     }
 }
 ```
@@ -61,5 +61,4 @@ npm test
 
 ## Disclaimer
 
-This project is not affiliated in anyway with Rollbar Inc. We do like their
-service though.
+This project is not affiliated in anyway with Airbrake.

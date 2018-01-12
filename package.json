@@ -1,0 +1,68 @@
+{
+  "name": "angular-airbrake",
+  "version": "0.0.1",
+  "description": "Angular 2+ Service for Airbrake error logging",
+  "main": "lib/index.js",
+  "typings": "lib/index",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "doc": "./node_modules/.bin/typedoc --out doc --mode modules --excludeNotExported --excludeExternals src",
+    "test": "ng test --single-run --code-coverage",
+    "posttest": "npm run coveralls",
+    "tsc": "node_modules/.bin/tsc",
+    "ngc": "node_modules/.bin/ngc",
+    "build": "npm run ngc",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "coveralls": "./node_modules/coveralls/bin/coveralls.js < coverage/coverage.lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextFaze/angular-airbrake"
+  },
+  "keywords": [
+    "angular",
+    "airbrake",
+    "logging"
+  ],
+  "author": "Michael Marner <npm-support@nextfaze.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/common": "^4.0.1",
+    "@angular/compiler": "^4.0.1",
+    "@angular/compiler-cli": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/platform-browser": "^4.0.1",
+    "@angular/platform-browser-dynamic": "^4.0.1",
+    "@types/jasmine": "^2.5.41",
+    "@types/node": "^7.0.12",
+    "angular-cli": "^1.0.0-beta.28.3",
+    "codecov": "^1.0.1",
+    "coveralls": "^2.11.16",
+    "jasmine-core": "^2.5.2",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-remap-istanbul": "^0.6.0",
+    "mocha": "^3.2.0",
+    "rxjs": "^5.0.1",
+    "ts-node": "^2.1.0",
+    "tslint": "^4.4.2",
+    "tslint-eslint-rules": "^3.3.0",
+    "typedoc": "^0.5.9",
+    "typescript": "^2.1.5",
+    "webpack": "^2.1.0-beta.25",
+    "zone.js": "^0.8.4"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=2.0.0",
+    "@angular/core": ">=2.0.0"
+  },
+  "dependencies": {
+    "airbrake-js": "^1.0.1"
+  }
+}

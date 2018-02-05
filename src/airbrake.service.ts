@@ -1,5 +1,5 @@
 import {ErrorHandler, Injectable, Inject, InjectionToken} from '@angular/core';
-import { AirbrakeClient} from 'airbrake-js';
+import AirbrakeClient from 'airbrake-js';
 
 export const AIRBRAKE_CONFIG = new InjectionToken<any>('airbrake config');
 

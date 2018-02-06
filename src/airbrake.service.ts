@@ -1,5 +1,5 @@
 import {ErrorHandler, Injectable, Inject, InjectionToken} from '@angular/core';
-import AirbrakeClient from 'airbrake-js';
+import * as Airbrake from 'airbrake-js';
 
 export const AIRBRAKE_CONFIG = new InjectionToken<any>('airbrake config');
 
@@ -11,7 +11,7 @@ export const AIRBRAKE_CONFIG = new InjectionToken<any>('airbrake config');
  * things a little smoother.
  */
 export class AirbrakeService implements ErrorHandler {
-  private airbrake: AirbrakeClient;
+  private airbrake: any;
 
   /**
    * Creates an instance of AirbrakeService.
@@ -21,7 +21,7 @@ export class AirbrakeService implements ErrorHandler {
    * @memberOf AirbrakeService
    */
   constructor(@Inject(AIRBRAKE_CONFIG) options) {
-    this.airbrake = new AirbrakeClient(options);
+    this.airbrake = new Airbrake(options);
   }
 
 

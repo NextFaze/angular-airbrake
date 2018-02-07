@@ -12,7 +12,7 @@ export const AIRBRAKE_CONFIG = new InjectionToken<any>('airbrake config');
  * things a little smoother.
  */
 export class AirbrakeService implements ErrorHandler {
-  private airbrake: any;
+  public airbrake: any;
 
   /**
    * Creates an instance of AirbrakeService.

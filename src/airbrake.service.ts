@@ -3,6 +3,7 @@ import * as Airbrake from 'airbrake-js';
 
 export const AIRBRAKE_CONFIG = new InjectionToken<any>('airbrake config');
 
+
 @Injectable()
 /**
  * Airbrake Logging Service.
@@ -31,6 +32,17 @@ export class AirbrakeService implements ErrorHandler {
 
   public error(err: any): void {
     this.handleError(err);
+  }
+
+  /**
+   * Passthrough for the Airbrake notify function. For full documentation check out Airbrake's docs:
+   * 
+   * https://github.com/airbrake/airbrake-js#advanced-usage
+   * 
+   * @param payload Error payload, supports anything supported by Airbrake
+   */
+  public notify(payload: any) {
+    return this.airbrake.notify(payload);
   }
 
 }

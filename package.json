@@ -1,11 +1,11 @@
 {
   "name": "angular-airbrake",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Angular 2+ Service for Airbrake error logging",
   "main": "lib/index.js",
   "typings": "lib/index",
   "scripts": {
-    "clean": "rm -rf lib",
+    "clean": "rm -rf {lib,dist}",
     "doc": "./node_modules/.bin/typedoc --out doc --mode modules --excludeNotExported --excludeExternals src",
     "test": "ng test --single-run --code-coverage",
     "posttest": "npm run coveralls",
@@ -13,18 +13,14 @@
     "ngc": "node_modules/.bin/ngc",
     "build": "npm run ngc",
     "prebuild": "npm run clean",
-    "prepublish": "npm run build",
-    "coveralls": "./node_modules/coveralls/bin/coveralls.js < coverage/coverage.lcov"
+    "coveralls": "./node_modules/coveralls/bin/coveralls.js < coverage/coverage.lcov",
+    "packagr": "ng-packagr -p ng-package.json"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/NextFaze/angular-airbrake"
   },
-  "keywords": [
-    "angular",
-    "airbrake",
-    "logging"
-  ],
+  "keywords": ["angular", "airbrake", "logging"],
   "author": "Michael Marner <npm-support@nextfaze.com>",
   "license": "MIT",
   "devDependencies": {
@@ -54,6 +50,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-remap-istanbul": "^0.6.0",
     "mocha": "^3.2.0",
+    "ng-packagr": "^2.0.0",
     "protractor": "~5.1.2",
     "rxjs": "^5.0.1",
     "ts-node": "~3.2.0",
